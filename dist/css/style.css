@@ -1,0 +1,31 @@
+:root {
+    --main-color: #427e80;
+    --bg-color: #ddddcd;
+    --header-font: 'Cabin', sans-serif;
+    --font: 'Noto Sans', sans-serif;
+}
+
+/* elements */
+body {
+    background-color: var(--bg-color);
+}
+
+h1 {
+    font-family: var(--header-font);
+    color: white;
+}
+
+div {
+    color: black;
+}
+
+h3, h5 {
+    font-family: var(--font);
+}
+
+/* classes */
+.jumbotron {
+    background-color: var(--main-color);
+}
+
+/* ids */

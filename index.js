@@ -1,6 +1,7 @@
 // Require packages
 const inquirer = require('inquirer');
 const fs = require('fs');
+const employeeCard = require("./dist/scripts/employeeCard");
 
 // Initialize the program
 const init = () => {
@@ -23,17 +24,20 @@ const moreEmployees = () => {
     .then((response) => {
       if (response.newMember[0] === 'No, finish building my team') {
         console.log('Building document!');
+        buildDocument();
       } else {
-        let item;
+        let item, icon;
         switch (response.newMember[0]) {
           case 'No, finish building my team':
             console.log('Building document!');
             break;
           case 'engineer':
             item = 'github username';
+            icon = 'devices'
             break;
           case 'intern':
             item = 'school';
+            icon = 'school';
             break;
         }
         console.log(`Adding ${response.newMember[0]} to the team!`);
@@ -72,6 +76,14 @@ const addEmployee = (employee, item = 'office number') => {
       // Create employee obj
       moreEmployees();
     });
+};
+
+const createHtml = () => {
+
+}
+
+const buildDocument = () => {
+
 };
 
 init();
