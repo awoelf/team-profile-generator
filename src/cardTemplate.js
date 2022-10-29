@@ -1,4 +1,4 @@
-export const card = ([employee, itemLabel, item, icon, name, id, email]) => {
+export const cardTemplate = ([employee, itemLabel, item, icon, name, id, email]) => {
   return `<div class='card col-4'>
     <div class='card-body'>
       <h3 class='card-title'>${name}</h3>

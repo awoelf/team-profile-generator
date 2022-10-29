@@ -1,12 +1,15 @@
 // Require packages
 const inquirer = require('inquirer');
 const fs = require('fs');
-const employeeCard = require("./dist/scripts/employeeCard");
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern');
+const Cards = require('./lib/Cards');
+const Manager = require('./lib/Manager');
+let teamCards = new Cards();
 
 // Initialize the program
 const init = () => {
   console.log('Welcome to the Team Profile Generator.');
-  // The first employee is the manager
   addEmployee('manager');
 };
 
@@ -26,28 +29,13 @@ const moreEmployees = () => {
         console.log('Building document!');
         buildDocument();
       } else {
-        let item, icon;
-        switch (response.newMember[0]) {
-          case 'No, finish building my team':
-            console.log('Building document!');
-            break;
-          case 'engineer':
-            item = 'github username';
-            icon = 'devices'
-            break;
-          case 'intern':
-            item = 'school';
-            icon = 'school';
-            break;
-        }
         console.log(`Adding ${response.newMember[0]} to the team!`);
-        addEmployee(response.newMember[0], item);
+        addEmployee(response.newMember[0]);
       }
     });
 };
 
-const addEmployee = (employee, item = 'office number') => {
-  console.log(item);
+const addEmployee = (employee) => {
   inquirer
     .prompt([
       {
@@ -67,19 +55,36 @@ const addEmployee = (employee, item = 'office number') => {
       },
       {
         type: 'input',
-        message: `What is the ${employee}\'s ${item}?`,
+        message: `What is the ${employee}\'s ${employeeItem(employee)}?`,
         name: 'item',
       },
     ])
     .then((response) => {
       console.log(response);
-      // Create employee obj
+      let newEmployee;
+      if (employee === 'engineer') {
+        newEmployee = new Engineer(response);
+      } else if (employee === 'intern') {
+        newEmployee = new Intern(response);
+      } else {
+        newEmployee = new Manager(response);
+      }
+      teamCards.addCard(newEmployee.createCard());
+      console.log(teamCards.getCards());
       moreEmployees();
     });
 };
 
-const createHtml = () => {
-
+const employeeItem = (employee) => {
+  if (employee === 'manager') {
+    return 'office number';
+  } else if (employee === 'engineer') {
+    return 'Github';
+  } else if (employee === 'intern') {
+    return 'school';
+  } else {
+    return 'item';
+  }
 }
 
 const buildDocument = () => {
