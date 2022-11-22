@@ -1,4 +1,4 @@
-export const template = (employeeCards) => {
+const htmlTemplate = (cardHtml) => {
 return `<!DOCTYPE html>
 <html lang="en">
   <head>
@@ -26,13 +26,15 @@ return `<!DOCTYPE html>
   <body>
     <header>
       <div class="jumbotron text-center p-2">
-        <h1 class="display-4">Team Members</h1>
+        <h1 class="display-4">Tech Team Members</h1>
       </div>
     </header>
-    <div class="container">
-        ${employeeCards}
+    <div class="d-flex justify-content-center">
+        ${cardHtml}
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="../scripts/employeeCard.js"></script>
   </body>
 </html>`}
+
+module.exports = htmlTemplate;
