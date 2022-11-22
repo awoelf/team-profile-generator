@@ -70,20 +70,23 @@ const addManager = () => {
   .then((response) => {
     let manager = new Manager(response);
     console.log(manager.getId());
-    let managerCard = `<div class='card col-2 mx-2'>
-    <div class='card-body'>
-      <h3 class='card-title'>${manager.getName()}</h3>
-      <h5 class='card-title d-flex'>
-        <span class='material-symbols-outlined'>local_cafe</span>
-        Manager
-      </h5>
-      <ul class='list-group'>
-        <li class='list-group-item'>Id: ${manager.getId()}</li>
-        <li class='list-group-item'>Email: <a href='mailto:${manager.getEmail()}'>${manager.getEmail()}</a></li>
-        <li class='list-group-item'>Office Number: ${manager.getOfficeNumber()}</li>
-      </ul>
-    </div>
-  </div>`
+    let managerCard = `
+    <div class='card col-2 mx-2 p-0'>
+      <div>
+      <div class='card-header-section p-3'>
+        <h3 class='card-title'>${manager.getName()}</h3>
+        <h4 class='card-title d-flex align-items-center'>
+          <span class='material-symbols-outlined'>local_cafe</span>
+          Manager
+        </h4>
+      </div>
+        <ul class='list-group p-3'>
+          <li class='list-group-item'>Id: ${manager.getId()}</li>
+          <li class='list-group-item'>Email: <a href='mailto:${manager.getEmail()}'>${manager.getEmail()}</a></li>
+          <li class='list-group-item'>Office Number: ${manager.getOfficeNumber()}</li>
+        </ul>
+      </div>
+    </div>`
 
   
   cardHtml += managerCard;
@@ -116,14 +119,17 @@ const addEngineer = () => {
     ])
     .then((response) => {
       let engineer = new Engineer(response)
-      let engineerCard = `<div class='card col-2 mx-2'>
-      <div class='card-body'>
+      let engineerCard = `
+      <div class='card col-2 mx-2 p-0'>
+      <div>
+      <div class='card-header-section p-3'>
         <h3 class='card-title'>${engineer.getName()}</h3>
-        <h5 class='card-title d-flex'>
+        <h4 class='card-title d-flex align-items-center'>
           <span class='material-symbols-outlined'>build</span>
           Engineer
-        </h5>
-        <ul class='list-group'>
+        </h4>
+      </div>
+        <ul class='list-group p-3'>
           <li class='list-group-item'>Id: ${engineer.getId()}</li>
           <li class='list-group-item'>Email: <a href='mailto:${engineer.getEmail()}'>${engineer.getEmail()}</a></li>
           <li class='list-group-item'>Github: <a href='https://github.com/${engineer.getGithub()}'>${engineer.getGithub()}</a></li>
@@ -161,20 +167,23 @@ const addIntern = () => {
   ])
   .then((response) => {
     let intern = new Intern(response)
-    let internCard = `<div class='card col-2 mx-2'>
-    <div class='card-body'>
-      <h3 class='card-title'>${intern.getName()}</h3>
-      <h5 class='card-title d-flex'>
-        <span class='material-symbols-outlined'>school</span>
-        Intern
-      </h5>
-      <ul class='list-group'>
-        <li class='list-group-item'>Id: ${intern.getId()}</li>
-        <li class='list-group-item'>Email: <a href='mailto:${intern.getEmail()}'>${intern.getEmail()}</a></li>
-        <li class='list-group-item'>School: ${intern.getSchool()}</li>
-      </ul>
-    </div>
-  </div>`
+    let internCard = `
+    <div class='card col-2 mx-2 p-0'>
+      <div>
+      <div class='card-header-section p-3'>
+        <h3 class='card-title'>${intern.getName()}</h3>
+        <h4 class='card-title d-flex align-items-center'>
+          <span class='material-symbols-outlined'>school</span>
+          Intern
+        </h4>
+      </div>
+        <ul class='list-group p-3'>
+          <li class='list-group-item'>Id: ${intern.getId()}</li>
+          <li class='list-group-item'>Email: <a href='mailto:${intern.getEmail()}'>${intern.getEmail()}</a></li>
+          <li class='list-group-item'>School: ${intern.getSchool()}</li>
+        </ul>
+      </div>
+    </div>`
 
   cardHtml += internCard;
   addEmployee();

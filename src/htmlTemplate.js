@@ -21,7 +21,7 @@ return `<!DOCTYPE html>
     />
     <link rel="stylesheet" href="../css/normalize.css" />
     <link rel="stylesheet" href="../css/style.css" />
-    <title>Team Members</title>
+    <title>Tech Team Members</title>
   </head>
   <body>
     <header>
@@ -32,8 +32,6 @@ return `<!DOCTYPE html>
     <div class="d-flex justify-content-center">
         ${cardHtml}
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="../scripts/employeeCard.js"></script>
   </body>
 </html>`}
 

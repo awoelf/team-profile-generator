@@ -28,5 +28,13 @@ h3, h5 {
     background-color: var(--main-color);
 }
 
+.card-header-section {
+    color: white;
+    background-color: var(--main-color);
+    border-top-right-radius: 5px !important;
+    border-top-left-radius: 5px !important;
+}
 
-/* ids */
+.card {
+    border-radius: 5px !important;
+}
